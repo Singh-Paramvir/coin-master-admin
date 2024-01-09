@@ -73,7 +73,7 @@ const TeamCount = () => {
                     <th>UserId</th>
                     <th>Levels</th>
                     <th>TotalTime</th>
-                    <th>Todaytime</th>
+                   
                     <th>ShowCount</th>
                     <th>ClickCount</th>
                     <th>ViewHistory</th>
@@ -86,8 +86,17 @@ const TeamCount = () => {
                         <td>{index + 1}</td>
                         <td>{referral.uniqueid}</td>
                         <td>{referral.playlable}</td>
-                        <td>{referral.total_time_count}</td>
-                        <td>{referral.todayTotalTime}</td>
+                       <td>
+    {(() => {
+        const totalSeconds = referral.total_time_count;
+        const minutes = Math.floor(totalSeconds / 60);
+        const seconds = totalSeconds % 60;
+
+        // Displaying minutes and seconds
+        return `${minutes} min ${seconds} sec`;
+    })()}
+</td>
+                       
                         <td>{referral.total_show_count}</td>
                         <td>{referral.total_click_count}</td>
                         <td>
